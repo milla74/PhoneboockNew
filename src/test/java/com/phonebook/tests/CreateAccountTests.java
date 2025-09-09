@@ -13,6 +13,7 @@ public class CreateAccountTests extends TestBase{
         driver.findElement(By.name("email")).click();
         driver.findElement(By.name("email")).clear();
         driver.findElement(By.name("email")).sendKeys("manual21@gmail.com");
+
     }
 
 
