@@ -16,7 +16,6 @@ public class Contact {
         this.name = name;
         return this;
     }
-
     public String getLastName() {
         return lastName;
     }

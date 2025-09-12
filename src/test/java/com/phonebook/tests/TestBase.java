@@ -54,6 +54,8 @@ public class TestBase {
         if(alert==null){
             return false;
         }else {
+            driver.switchTo().alert();
+            alert.accept();
             return true;
         }
     }
