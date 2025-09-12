@@ -1,5 +1,7 @@
 package com.phonebook.tests;
 
+import com.phonebook.models.Contact;
+import com.phonebook.models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,26 +11,26 @@ public class DeleteTests extends TestBase{
 
     @BeforeMethod
     public void precondition(){
-       clickOnLoginLink();
-        fillRegisterLoginForm(new User().setEmail("manual22@gmail.com").setPassword("Manuel12345$"));
-        clickOnLoginButton();
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setEmail("manual22@gmail.com").setPassword("Manuel12345$"));
+        app.getUser().clickOnLoginButton();
 
-        clickOnAddLink();
-        fillContactForm(new Contact()
+        app.getContact().clickOnAddLink();
+        app.getContact().fillContactForm(new Contact()
                 .setName("Kristina")
                 .setLastName("Tomash")
                 .setPhone("01234567890")
                 .setEmail("Test1@gm.com")
                 .setAddress("Berline")
                 .setDescription("QA"));
-        clickOnSaveButton();
+        app.getContact().clickOnSaveButton();
     }
     @Test
     public void deleteContactTest(){
-        int sizeBefore = sizeOfContacts();
-        deleteContact();
-        pause(1000);
-        int sizeAfter = sizeOfContacts();
+        int sizeBefore =  app.getContact().sizeOfContacts();
+        app.getContact().deleteContact();
+        app.getContact().pause(1000);
+        int sizeAfter =  app.getContact().sizeOfContacts();
         Assert.assertEquals(sizeAfter,sizeBefore -1);
         }
 
