@@ -4,12 +4,14 @@ import com.phonebook.data.ContactData;
 import com.phonebook.data.UserData;
 import com.phonebook.models.Contact;
 import com.phonebook.models.User;
+import com.phonebook.utils.Data;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -42,16 +44,8 @@ public class AddContactTests extends TestBase{
     }
 
 
-        @DataProvider
-        public Iterator <Object[]>addNewContact(){
-            List<Object[]>list = new ArrayList<>();
-            list.add(new Object[]{"Lara","Kraft","1234567890","Lara@gm.com","Larnaca","QA"});
-            list.add(new Object[]{"Lara","Kraft","12345678901","Lara1@gm.com","Larnaca","QA"});
-            list.add(new Object[]{"Lara","Kraft","123456789012","Lara2@gm.com","Larnaca","QA"});
 
-        return list.iterator();
-        }
-        @Test(dataProvider = "addNewContact")
+        @Test(dataProvider = "addNewContact",dataProviderClass = Data.class)
     public void addContactPositiveFromDataProviderTest(String name,String lastName,
                                                        String phone,String email,
                        String address,String description){
@@ -67,10 +61,21 @@ public class AddContactTests extends TestBase{
         Assert.assertTrue(app.getContact().isContactAdded(name));
     }
 
+
+
+        @Test(dataProvider = "addNewContactWithCSV",dataProviderClass = Data.class)
+    public void addContactPositiveFromDataProviderWithCsvFileTest(Contact contact){
+            app.getContact().clickOnAddLink();
+            app.getContact().fillContactForm(contact);
+        app.getContact().clickOnSaveButton();
+        Assert.assertTrue(app.getContact().isContactAdded(contact.getName()));
+    }
+
     @AfterMethod
     public void postCondition(){
         app.getContact().deleteContact();
         }
 
 }
+
 
