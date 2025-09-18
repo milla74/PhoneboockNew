@@ -13,7 +13,7 @@
                 <methods>
                     <exclude name=".*From.*"></exclude>
                 </methods>
-                    </class>
+            </class>
             <class name="com.phonebook.tests.DeleteTests"/>
         </classes>
     </test>

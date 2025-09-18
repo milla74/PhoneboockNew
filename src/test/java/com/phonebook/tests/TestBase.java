@@ -1,6 +1,7 @@
 package com.phonebook.tests;
 
 import com.phonebook.fw.ApplicationManager;
+import com.phonebook.fw.ApplicationManager;
 import org.openqa.selenium.remote.Browser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

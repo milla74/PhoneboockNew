@@ -45,12 +45,12 @@ public class AddContactTests extends TestBase{
 
 
 
-        @Test(dataProvider = "addNewContact",dataProviderClass = Data.class)
+    @Test(dataProvider = "addNewContact",dataProviderClass = Data.class)
     public void addContactPositiveFromDataProviderTest(String name,String lastName,
                                                        String phone,String email,
-                       String address,String description){
-            app.getContact().clickOnAddLink();
-            app.getContact().fillContactForm(new Contact()
+                                                       String address,String description){
+        app.getContact().clickOnAddLink();
+        app.getContact().fillContactForm(new Contact()
                 .setName(name)
                 .setLastName(lastName)
                 .setPhone(phone)
@@ -63,10 +63,10 @@ public class AddContactTests extends TestBase{
 
 
 
-        @Test(dataProvider = "addNewContactWithCSV",dataProviderClass = Data.class)
+    @Test(dataProvider = "addNewContactWithCSV",dataProviderClass = Data.class)
     public void addContactPositiveFromDataProviderWithCsvFileTest(Contact contact){
-            app.getContact().clickOnAddLink();
-            app.getContact().fillContactForm(contact);
+        app.getContact().clickOnAddLink();
+        app.getContact().fillContactForm(contact);
         app.getContact().clickOnSaveButton();
         Assert.assertTrue(app.getContact().isContactAdded(contact.getName()));
     }
@@ -74,8 +74,7 @@ public class AddContactTests extends TestBase{
     @AfterMethod
     public void postCondition(){
         app.getContact().deleteContact();
-        }
+    }
 
 }
-
 

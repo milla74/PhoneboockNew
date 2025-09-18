@@ -45,12 +45,12 @@ public class BaseHelper {
     }
 
     public void pause(int millis){
-try {
-    Thread.sleep(millis);
-} catch (InterruptedException e) {
-    throw new RuntimeException(e);
-}
-}
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public String takeScreenshot(){
 
         File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -61,7 +61,7 @@ try {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    return screenshot.getAbsolutePath();
+        return screenshot.getAbsolutePath();
     }
 
 

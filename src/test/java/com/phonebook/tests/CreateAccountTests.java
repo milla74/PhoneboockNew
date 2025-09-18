@@ -21,7 +21,7 @@ public class CreateAccountTests extends TestBase{
     @Test(enabled = false)
     public void newUserRegistrationPositiveTest(){
 
-       //int i =(int)((System.currentTimeMillis()/1000)%3600);
+        //int i =(int)((System.currentTimeMillis()/1000)%3600);
         app.getUser().clickOnLoginLink();
         app.getUser().fillRegisterLoginForm(new User().setEmail(UserData.EMAIL).setPassword(UserData.PASSWORD));
         app.getUser().clickOnRegistrationButton();
@@ -29,7 +29,7 @@ public class CreateAccountTests extends TestBase{
     }
 
     @Test()
-        public void existedUserRegistrationNegativeTest(){
+    public void existedUserRegistrationNegativeTest(){
 
         app.getUser().clickOnLoginLink();
         app.getUser().fillRegisterLoginForm(new User().setEmail(UserData.EMAIL).setPassword(UserData.PASSWORD));

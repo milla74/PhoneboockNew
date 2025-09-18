@@ -15,22 +15,22 @@ public class LoginTests extends TestBase{
         }
     }
 
-        @Test(priority = 1)
+    @Test(priority = 1)
     public void loginPositiveTest(){
         logger.info("Login with data --> "+ UserData.EMAIL + "*************"+ UserData.PASSWORD);
-    app.getUser().clickOnLoginLink();
-    app.getUser().fillRegisterLoginForm(new User().setEmail(UserData.EMAIL).setPassword(UserData.PASSWORD));
-    app.getUser().clickOnLoginButton();
-    Assert.assertTrue(app.getUser().isSignOutButtonPresent());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setEmail(UserData.EMAIL).setPassword(UserData.PASSWORD));
+        app.getUser().clickOnLoginButton();
+        Assert.assertTrue(app.getUser().isSignOutButtonPresent());
 
-}
-        @Test(priority = 2)
+    }
+    @Test(priority = 2)
     public void loginNegativeWithoutEmailTest(){
-    app.getUser().clickOnLoginLink();
-            app.getUser().fillRegisterLoginForm(new User().setPassword(UserData.PASSWORD));
-            app.getUser().clickOnLoginButton();
-    Assert.assertTrue(app.getUser().isAlertDisplayed());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setPassword(UserData.PASSWORD));
+        app.getUser().clickOnLoginButton();
+        Assert.assertTrue(app.getUser().isAlertDisplayed());
 
-}
+    }
 
 }
