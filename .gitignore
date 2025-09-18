@@ -12,7 +12,5 @@ settings.gradle
 gradlew.bat
 \gradlew
 gradlew/
-*.log
-*.png
 
 
