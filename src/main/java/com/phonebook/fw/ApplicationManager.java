@@ -8,6 +8,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 import org.slf4j.Logger;
+
+
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
